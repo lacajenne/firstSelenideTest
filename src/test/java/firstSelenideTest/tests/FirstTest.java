@@ -9,6 +9,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class FirstTest {
 
+    // this is the first example class to be used
+
     @Before
     public void setup() {
         System.setProperty("selenide.browser", "Chrome");
