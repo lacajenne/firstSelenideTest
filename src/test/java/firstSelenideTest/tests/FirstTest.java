@@ -1,11 +1,13 @@
 package firstSelenideTest.tests;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.commands.Exists;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.exist;
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
@@ -35,6 +37,12 @@ public class FirstTest {
 
         // find the Selenide logo by element attribute specification
         $(byAttribute("src", "/images/selenide-logo-big.png")).should(exist);
+
+        // check that the logo has css attribute border equal to 0
+        $(byAttribute("src", "/images/selenide-logo-big.png")).shouldHave(Condition.attribute("border", "0"));
+
+        // check text of link
+        $(byAttribute("href", "/quick-start.html")).shouldHave(text("Quick start"));
     }
 
 }
